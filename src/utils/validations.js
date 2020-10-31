@@ -45,8 +45,6 @@ export const telefoneValidation = (telefone) => {
     }
 
     return [errors.length === 0, errors]
-<<<<<<< HEAD
-=======
 }
 
 export const rgValidation = (rg) => {
@@ -57,5 +55,4 @@ export const rgValidation = (rg) => {
     }
 
     return [errors.length === 0, errors]
->>>>>>> dev
 }

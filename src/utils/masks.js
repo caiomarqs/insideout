@@ -4,16 +4,6 @@ export const phoneMask = (value = "") => {
 
     if (value.length >= 13) {
         phoneNumeber = value
-<<<<<<< HEAD
-            .replace(/\D/g, "")                
-            .replace(/^(\d{2})(\d{1})(\d)/g, "$1 $2 $3")
-            .replace(/(\d{4})(\d)/, "$1-$2") 
-    }
-    else {
-        phoneNumeber = value
-            .replace(/\D/g, "")                
-            .replace(/^(\d\d)(\d)/g, "$1 $2")  
-=======
             .replace(/\D/g, "")
             .replace(/^(\d{2})(\d{1})(\d)/g, "$1 $2 $3")
             .replace(/(\d{4})(\d)/, "$1-$2")
@@ -22,13 +12,10 @@ export const phoneMask = (value = "") => {
         phoneNumeber = value
             .replace(/\D/g, "")
             .replace(/^(\d\d)(\d)/g, "$1 $2")
->>>>>>> dev
             .replace(/(\d{4})(\d)/, "$1-$2")
     }
 
     return phoneNumeber
-<<<<<<< HEAD
-=======
 }
 
 export const rgMask = (value = "") => {
@@ -49,5 +36,4 @@ export const rgMask = (value = "") => {
     }
 
     return rg;
->>>>>>> dev
 }
