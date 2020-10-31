@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "107749915908",
+    "firebase_url": "https://insideout-1d955.firebaseio.com",
+    "project_id": "insideout-1d955",
+    "storage_bucket": "insideout-1d955.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107749915908:android:ab18e60dbb4ee6ac8e6451",
+        "android_client_info": {
+          "package_name": "com.challange_inside_out"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107749915908-v6ut9qvgkaqgmjgjle68iqmtheuii3l2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACjI6ne5ac35H0Pe8mcyoDoS3VC53vnxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107749915908-v6ut9qvgkaqgmjgjle68iqmtheuii3l2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

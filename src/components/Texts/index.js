@@ -1,0 +1,6 @@
+export * from './H1Text'
+export * from './H2Text'
+export * from './H3Text'
+export * from './BodyText'
+export * from './ButtonText'
+export * from './CaptionText'
