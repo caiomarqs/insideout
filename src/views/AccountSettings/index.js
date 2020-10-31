@@ -6,6 +6,7 @@ import { StatusBarColor } from '../../components/StatusBarColor'
 import { BodyText, H2Text } from '../../components/Texts'
 import { CloseButton, TransparentButton } from '../../components/Buttons'
 import { UserContext, USER_ACTIONS } from '../../contexts/UserContext'
+import { storeString } from '../../utils/asyncStorage'
 
 import { styles } from './styles'
 
@@ -17,6 +18,7 @@ export const AccountSettings = (props) => {
     const handleLogOut = () => {
         auth().signOut()
         dispatch({ type: USER_ACTIONS.CLEAR_DATA })
+        storeString('userPass', '')
     }
 
     return (

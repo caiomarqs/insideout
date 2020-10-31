@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { SafeAreaView, View, Alert } from 'react-native'
 import auth from '@react-native-firebase/auth'
 
@@ -6,8 +6,10 @@ import { SolidButton, TransparentButton } from '../../components/Buttons'
 import { H2Text, BodyText } from '../../components/Texts'
 import { StatusBarColor } from '../../components/StatusBarColor'
 import { NormalInput, SecretInput } from '../../components/Inputs'
+import { storeString } from '../../utils/asyncStorage'
 
 import { styles } from './styles'
+
 
 export const Login = (props) => {
 
@@ -19,18 +21,28 @@ export const Login = (props) => {
     if (email !== '' && senha !== '') {
       auth()
         .signInWithEmailAndPassword(email, senha)
+        .then(() => {
+          storeString('userPass', senha)
+        })
         .catch(error => {
-          console.log(error)
+          if (error.code === 'auth/too-many-requests') {
+            Alert.alert('Erro ao fazer login', 'Diversas tentativas erradas, o usuario foi bloqueado por algum tempo!');
+          }
+
+          if (error.code === 'auth/user-not-found') {
+            Alert.alert('Erro ao fazer login', 'Email não cadastrado, cadastre-se!');
+          }
+
           if (error.code === 'auth/invalid-email') {
             Alert.alert('Erro ao fazer login', 'Email inválido');
           }
 
           if (error.code === 'auth/wrong-password') {
-            Alert.alert('Erro ao fazer login',  'Senha incorreta');
+            Alert.alert('Erro ao fazer login', 'Senha incorreta');
           }
         })
     }
-    else{
+    else {
       Alert.alert('Erro ao fazer login', 'Preencha todos os campos');
     }
 

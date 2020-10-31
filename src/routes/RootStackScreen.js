@@ -20,6 +20,8 @@ import { ChangePassword } from '../views/ChangePassword'
 import { ChangePasswordSuccess } from '../views/ChangePasswordSuccess'
 import { Colors } from '../styles/base';
 
+import { getString } from '../utils/asyncStorage'
+
 const Stack = createStackNavigator();
 
 export const RootStackScreen = () => {
