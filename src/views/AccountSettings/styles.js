@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { Fonts } from '../../styles/base'
 
 export const styles = StyleSheet.create({
     container: {
@@ -11,8 +12,13 @@ export const styles = StyleSheet.create({
         marginTop: 16,
         textAlign: 'center'
     },
+    textName: {
+        marginTop: 32,
+        textAlign: 'center',
+        fontFamily: Fonts.TextBold.fontFamily
+    },
     buttonsContainer: {
-        paddingTop: 104
+        paddingTop: 72
     },
     button: {
         marginTop: 56

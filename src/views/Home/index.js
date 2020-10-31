@@ -11,7 +11,7 @@ import { styles } from './styles'
 export const Home = (props) => {
   return (
     <>
-      <StatusBarColor barStyle="ligth-content" />
+      <StatusBarColor barStyle="ligth-content" backgroundColor="transparent" />
       <SafeAreaView style={styles.container}>
         <View style={styles.titleContainer}>
           <H2Text style={styles.title}>InsideOut</H2Text>
