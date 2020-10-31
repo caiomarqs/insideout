@@ -16,6 +16,10 @@ target 'challange_inside_out' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'RNFBFirestore', :path => '../node_modules/@react-native-firebase/firestore'
+
+  pod 'RNFBAuth', :path => '../node_modules/@react-native-firebase/auth'
+
   target 'challange_inside_outTests' do
     inherit! :complete
     # Pods for testing

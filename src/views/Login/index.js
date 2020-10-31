@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { SafeAreaView, View } from 'react-native'
+import { SafeAreaView, View, Alert } from 'react-native'
+import auth from '@react-native-firebase/auth'
 
 import { SolidButton, TransparentButton } from '../../components/Buttons'
 import { H2Text, BodyText } from '../../components/Texts'
@@ -12,6 +13,28 @@ export const Login = (props) => {
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+
+
+  const handleLogin = () => {
+    if (email !== '' && senha !== '') {
+      auth()
+        .signInWithEmailAndPassword(email, senha)
+        .catch(error => {
+          console.log(error)
+          if (error.code === 'auth/invalid-email') {
+            Alert.alert('Erro ao fazer login', 'Email inválido');
+          }
+
+          if (error.code === 'auth/wrong-password') {
+            Alert.alert('Erro ao fazer login',  'Senha incorreta');
+          }
+        })
+    }
+    else{
+      Alert.alert('Erro ao fazer login', 'Preencha todos os campos');
+    }
+
+  }
 
   return (
     <>
@@ -38,7 +61,7 @@ export const Login = (props) => {
             title="acessar sua conta"
             color="Primary"
             style={styles.button}
-            onPress={() => props.navigation.navigate('Home')}
+            onPress={() => handleLogin()}
           />
           <TransparentButton
             title="criar uma nova conta"

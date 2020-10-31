@@ -1,14 +1,49 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import React, { useContext, useEffect } from 'react'
+import { SafeAreaView, ScrollView, Alert } from 'react-native'
+import auth from '@react-native-firebase/auth'
+import firestore from '@react-native-firebase/firestore'
 
 import { StatusBarColor } from '../../components/StatusBarColor'
 import { BodyText, H2Text } from '../../components/Texts'
 import { SolidButton } from '../../components/Buttons'
-import { ScrollView } from 'react-native-gesture-handler'
+import { UserContext } from '../../contexts/UserContext'
 
 import { styles } from './styles'
 
+
 export const Terms = (props) => {
+
+    const { userState } = useContext(UserContext)
+
+    const handleAcceptTerms = () => {
+        auth()
+            .createUserWithEmailAndPassword(userState.user.email, userState.user.senha)
+            .then((data) => {
+
+                firestore()
+                    .collection('users')
+                    .add({
+                        nome: userState.user.nome,
+                        email: userState.user.email,
+                        telefone: userState.user.telefone,
+                        uid: data.user.uid,
+                    })
+                    .catch(_ => {
+                        Alert.alert('Erro ao cadastrar', 'Não foi possivel cadastrar no servidor');
+                    })
+
+            })
+            .catch(error => {
+                if (error.code === 'auth/email-already-in-use') {
+                    Alert.alert('Erro ao cadastrar', 'O email que voce tentou cadastrar já está em uso');
+                }
+
+                if (error.code === 'auth/invalid-email') {
+                    Alert.alert('Erro ao cadastrar', 'O email que voce tentou cadastrar é inválido');
+                }
+            })
+    }
+
     return (
         <>
             <StatusBarColor barStyle="dark-content" />
@@ -24,7 +59,7 @@ export const Terms = (props) => {
                     title="aceitar"
                     color="Black"
                     style={styles.button}
-                    onPress={() => props.navigation.navigate('Welcome')}
+                    onPress={() => handleAcceptTerms()}
                 />
             </SafeAreaView>
         </>
