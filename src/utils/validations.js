@@ -45,4 +45,17 @@ export const telefoneValidation = (telefone) => {
     }
 
     return [errors.length === 0, errors]
+<<<<<<< HEAD
+=======
+}
+
+export const rgValidation = (rg) => {
+    const errors = []
+
+    if (rg.trim().length < 12 || rg.trim().length > 13) {
+        errors.push('Insira um rg válido!\n')
+    }
+
+    return [errors.length === 0, errors]
+>>>>>>> dev
 }

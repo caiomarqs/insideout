@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
     },
     text: {
         marginTop: 16,
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingHorizontal: 24
     },
     inputsContainer: {
         flex: 1,

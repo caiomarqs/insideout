@@ -7,6 +7,7 @@ import { StatusBarColor } from '../../components/StatusBarColor'
 import { BodyText, H2Text } from '../../components/Texts'
 import { SolidButton } from '../../components/Buttons'
 import { UserContext } from '../../contexts/UserContext'
+import { storeString } from '../../utils/asyncStorage'
 
 import { styles } from './styles'
 
@@ -19,6 +20,8 @@ export const Terms = (props) => {
         auth()
             .createUserWithEmailAndPassword(userState.user.email, userState.user.senha)
             .then((data) => {
+                
+                storeString('userPass', userState.user.senha)
 
                 firestore()
                     .collection('users')

@@ -8,11 +8,17 @@ import { SolidButton } from '../../components/Buttons'
 import { styles } from './styles'
 
 export const DonationSuccess = (props) => {
+
+    const { update } = props.route.params;
     return (
         <>
             <StatusBarColor barStyle="ligth-content" />
             <SafeAreaView style={styles.container}>
-                <Text style={styles.title}>agora você é um doador de orgãos.</Text>
+                {
+                    update 
+                    ?<Text style={styles.title}>Você atualizou seu cadastro.</Text>
+                    :<Text style={styles.title}>agora você é um doador de orgãos.</Text>
+                }
                 <BodyText style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id proin id fermentum tempor.</BodyText>
                 <SolidButton
                     title="finalizar"
