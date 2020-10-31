@@ -37,7 +37,7 @@ export const RootStackScreen = () => {
             <Stack.Screen name="AccountSettings" component={AccountSettings} />
             <Stack.Screen name="DeleteAccount" component={DeleteAccount} />
             <Stack.Screen name="ChangePassword" component={ChangePassword} />
-            <Stack.Screen name="ChangePasswordSuccess" component={ChangePasswordSuccess} />
+            <Stack.Screen name="ChangePasswordSuccess" component={ChangePasswordSuccess} options={{ cardStyle: { backgroundColor: Colors.Primary } }} />
         </Stack.Navigator>
     )
 }
