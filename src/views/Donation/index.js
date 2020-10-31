@@ -82,9 +82,10 @@ export const Donation = (props) => {
                         uid: uid,
                     })
                     .then(_ => {
-                        props.navigation.navigate('DonationSuccess')
+                        props.navigation.navigate('DonationSuccess', { update })
                     })
-                    .catch(_ => {
+                    .catch(error => {
+                        console.log(error)
                         Alert.alert(
                             'Erro ao cadastrar',
                             'Não foi possivel cadastrar o seu desejo de ser doador'
